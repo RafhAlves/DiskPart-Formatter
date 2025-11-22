@@ -13,7 +13,6 @@
 - `diskpart_formatter.ps1` - Script PowerShell interativo (versão colorida).
 - `demo.gif` - GIF demonstrativo do menu (simulação).
 - `tui_fallback.py` - Script Python com interface de terminal (fallback sem dependências externas).
-- `README.md` - Este arquivo.
 
 ## Recursos
 
