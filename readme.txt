@@ -1,87 +1,38 @@
-# 🧰 DiskPart Formatter – Script Interativo para Formatação e Preparação de Discos
+# DiskPart Formatter
 
-Este projeto fornece um script interativo para Windows que utiliza o **DiskPart** para formatar discos, criar partições, preparar pendrives bootáveis e gerenciar estruturas MBR/GPT, tudo com menus coloridos e interface simples.
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![PowerShell](https://img.shields.io/badge/PowerShell-supported-blue)
 
----
+**DiskPart Formatter** é um script interativo para Windows (PowerShell) que simplifica a formatação de discos, criação de pendrives bootáveis (Windows/Linux) e preparação de unidades para armazenamento.
 
-## 🚀 Recursos Principais
+> ⚠️ **AVISO:** Este script APAGA COMPLETAMENTE o disco selecionado. Use com extremo cuidado e somente em discos que você tem certeza.
 
-* Interface interativa com **menus coloridos**
-* Lista automaticamente todos os discos disponíveis
-* Opções para:
+## Conteúdo deste repositório
 
-  * Criar disco **MBR** com partição ativa (compatível com BIOS/Legacy)
-  * Criar disco **GPT** (recomendado para UEFI)
-  * Criar **pendrive bootável**
-  * Apenas **formatar o disco para uso normal**
-* Perguntas guiadas para evitar erros
-* Gera e executa automaticamente o arquivo de comandos DiskPart
-* Limpeza completa com `clean`
-* Marca partição ativa quando necessário
-* Compatível com Windows 10 e 11
+- `diskpart_formatter.ps1` - Script PowerShell interativo (versão colorida).
+- `demo.gif` - GIF demonstrativo do menu (simulação).
+- `tui_fallback.py` - Script Python com interface de terminal (fallback sem dependências externas).
 
----
+## Recursos
 
-## 📦 Estrutura do Projeto
+- Listagem automática de discos (via `Get-Disk`)
+- Seleção interativa do disco
+- Suporte a **GPT** e **MBR**
+- Marcação automática de partição **active** quando MBR
+- Opções:
+  - Formatação normal
+  - Criar pendrive bootável Windows
+  - Criar pendrive bootável Linux / ISO genérica
+  - Formatar disco para armazenamento (NTFS / exFAT / FAT32)
+- Menus coloridos para melhor leitura
 
-* `script.cmd` → Script principal em Shell com menus coloridos
-* `demo.gif` → Demonstração animada do funcionamento do script
-* `script.ps1` → Versão PowerShell do script
-* `tui.py` → Interface TUI em Python para interagir com DiskPart
-* `README.md` → Documentação completa
+## Como usar (PowerShell)
 
----
-
-## 📸 Demonstração (GIF)
-
-Veja abaixo uma simulação do comportamento do script (arquivo `demo.gif`).
-
-> Demonstração mostrando a navegação pelos menus, listagem de discos e seleção das opções de formatação.
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-* Shell Script (`.cmd`)
-* PowerShell
-* Python (para a interface TUI)
-* DiskPart (Windows)
-* ANSI Escape Codes para cores
-
----
-
-## 📄 Uso
-
-1. Execute o script como **Administrador**:
-
-```
-script.cmd
-```
-
-2. Escolha uma das opções no menu:
-
-   * 1: Criar disco MBR ativo
-   * 2: Criar disco GPT
-   * 3: Criar Pendrive Bootável
-   * 4: Formatar disco para uso normal
-
-3. Confirme o número do disco e aguarde.
-
----
-
-## ⚠️ Aviso Importante
-
-Este script **apaga completamente o disco selecionado**.
-Use apenas se souber exatamente o que está fazendo.
-
----
-
-## 🤝 Contribuições
-
-Pull requests são bem-vindos.
-
----
-
-## 📜 Licença
-
-Projeto disponível sob a licença MIT.
+1. Baixe `diskpart_formatter.ps1` para sua máquina Windows.
+2. Abra o **PowerShell como Administrador**.
+3. Navegue até a pasta onde salvou o script.
+4. Execute:
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\diskpart_formatter.ps1
