@@ -1,28 +1,9 @@
+# ==================================================== #
+#   SCRIPT DE FORMATAÇÃO INTERATIVA DISKPART           #
+#  GPT / MBR / Boot Windows / Linux / Armazenamento    #
+# ==================================================== #
 
----
 
-# 2) PowerShell script (copie para `diskpart_formatter.ps1`)
-
-```powershell
-<#
-.SYNOPSIS
-    DiskPart Formatter - Interactive PowerShell script to format disks, create bootable USBs and prepare storage.
-
-.DESCRIPTION
-    Interactive script that lists disks, asks which disk to format, allows choosing MBR/GPT,
-    formats for storage or for bootable media (Windows/Linux) and marks partition as active
-    automatically when MBR is selected. Menus are colorized for readability.
-
-.NOTES
-    - Run as Administrator.
-    - This script will ERASE the selected disk. Use with extreme caution.
-    - Tested on Windows 10/11 with PowerShell.
-#>
-
-# Version
-$version = "1.2.0"
-
-Write-Host "DiskPart Formatter - v$version" -ForegroundColor Cyan
 Write-Host "=== LISTA DE DISCOS ===" -ForegroundColor Cyan
 Get-Disk | Select Number, FriendlyName, Size, PartitionStyle | Format-Table
 
@@ -99,7 +80,7 @@ assign letter=$driveLetter
 exit
 "@
 
-        Write-Host "`nApós finalizado, copie o conteúdo da ISO montada do Windows para o pendrive." -ForegroundColor Cyan
+        Write-Host "`nApós finalizar, copie o conteúdo da ISO montada do Windows para o pendrive." -ForegroundColor Cyan
     }
 
     3 {
